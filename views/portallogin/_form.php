@@ -8,16 +8,19 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="portallogin-form">
+<div class="portallogin-form ">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'UserName')->textInput(['maxlength' => true]) ?>
+     <div class="mywidth">
+        <?= $form->field($model, 'UserName')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'Password')->passwordInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'Password')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'UserTypeID')->textInput() ?>
+        <?= $form->field($model, 'UserTypeID')->textInput() ?>
 
+     </div>
+    
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

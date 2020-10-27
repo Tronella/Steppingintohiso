@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "portallogin".
@@ -15,7 +16,7 @@ use Yii;
  * @property Customers[] $customers
  * @property Usertype $userType
  */
-class Portallogin extends \yii\db\ActiveRecord
+class Portallogin extends \yii\db\ActiveRecord implements IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -69,5 +70,47 @@ class Portallogin extends \yii\db\ActiveRecord
     public function getUserType()
     {
         return $this->hasOne(Usertype::className(), ['UserTypeID' => 'UserTypeID']);
+    }
+
+
+       /**
+     * @return int|string current user ID
+     */
+    public function getId()
+    {
+        return $this->UserID;
+    }
+
+    // to validates the owner of the user ID
+    public static function findIdentity($id){
+        return static::findOne($id);
+    }
+
+    /**
+     * @return string current user auth key
+     */
+    public function getAuthKey()
+    {
+        return $this->AuthKey;
+    }
+
+    // to validate the authentication key
+    public function validateAuthKey($authKey)
+    {
+        return $this->getAuthKey() === $authKey;
+    }
+
+    // to have the authentication key inactive
+    public static function findIdentityByAccessToken($token, $type = null) {
+        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+    }
+    // checks the username in the db
+    public static function findByUsername($username) {
+        return self::findOne(['Username' => $username]);
+    }
+    
+    // to validate the password
+    public function validatePassword($password) {
+        return$this->Password === $password;
     }
 }

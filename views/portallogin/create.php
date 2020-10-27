@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Portallogin */
 
-$this->title = 'Create Portallogin';
+$this->title = 'Sign Up';
 $this->params['breadcrumbs'][] = ['label' => 'Portallogins', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

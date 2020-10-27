@@ -1,5 +1,9 @@
 <?php
 
+use app\models\Customers;
+use app\models\Staff;
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
 
 $this->title = 'Stepping Into History';
@@ -14,9 +18,13 @@ $this->title = 'Stepping Into History';
             </div>
         </div>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead"> 
+          <h1>History in the making</h1>
+        </p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p><?= Html::a('Sign Up', ['/portallogin/create'], ['class' => 'btn btn-success']) ?></p>
+        <?php // Html::a('Create Customer Account', ['/customers/create'], ['class' => 'btn btn-success']) ?>
+        </div>
     </div>
 
 </div>

@@ -2,10 +2,8 @@
 /*gives the image an outside shape*/
 .heading{
 	-webkit-clip-path: circle(70.9% at 32% 39%);
-     background-image: url(../SteppingIntoHistory/web/images/history.jpg);
      shape-outside:circle(70.9% at 32% 39%);
      background-size: cover;
-     box-shadow:0 0 10px rgb(51, 26, 0);
      width: 600px;
      height: 600px;
      float: left;
@@ -30,4 +28,7 @@
 	letter-spacing: 2px;
 	color:rgb(102, 51, 0);
 	text-shadow:0 0 8px #fff1e6,0 1px 3px rgba(102, 51, 0,0.8);
+}
+.mywidth{
+     width: 400px;
 }
